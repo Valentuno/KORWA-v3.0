@@ -1,0 +1,20 @@
+#active-baza-link {
+    color: red;
+}
+.wrapper {
+    justify-content: center;
+}
+#Tabela_baza {
+    width: 100%;
+}
+td {
+    text-align: center;
+    font-family: 'Kanit';
+    font-size: 14px;
+}
+.w20 {
+    width: 10%;
+}
+.w80 {
+    width: 90%;
+}

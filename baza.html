@@ -4,9 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/index_styles.css">
+    <link rel="stylesheet" href="css/baza_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button id="pobierzDane">Pobierz dane</button>
+    <header>
+        <div class="wrapper">
+            <div class="logo-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="" width="185px" height="72px">
+                    </a>
+                </div>
+                <div class="divider"></div>
+                <div class="logo-text white-text"> <p>Dotarłeś do miejsca gdzie trzeźwość mówi dobranoc</p></div>
+            </div>
+            
+            <div class="menu">
+                <ul>
+                    <li><a  href="kalkulator.html">Kalkulator</a></li>
+                    <li><a id="active-baza-link" href="baza.html">Baza Alkoholi</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </header>
+
+    <main>
+        <div class="wrapper">
+            <div class="w20">
+                <button id="pobierzDane">Pobierz dane</button>
+            </div>
+            <div class="w80">
+                <table id="Tabela_baza">
+                    <tr>
+                        <th>ID</th>
+                        <th>Zdjęcie</th>
+                        <th>Nazwa</th>
+                        <th>Rentowność</th>
+                        <th>Ocena</th>
+                    </tr>
+                    <tbody>
+    
+                    </tbody>
+    
+                </table>
+            </div>
+            
+        </div>
+    </main>
+
+    
+    <!-- <script src="js/table_test.js"></script> -->
     <script src="js/databaseapp.js"></script>
 </body>
 </html>

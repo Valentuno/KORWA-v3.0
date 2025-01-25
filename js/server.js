@@ -6,9 +6,10 @@ const app = express();
 const port = 3000;
 const uri = 'mongodb://127.0.0.1:27017/db_webapp'; // Twój URI
 
+const AlkoholeArrSortedId = require("./baza_init")
+
 mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+
 }).then(() => console.log('Połączono z MongoDB'))
 .catch(err => console.error('Błąd połączenia z MongoDB', err));
 
@@ -23,6 +24,24 @@ const daneSchemaAlk = new mongoose.Schema({
 });
 
 const DaneAlk = mongoose.model('DaneAlk', daneSchemaAlk, 'Alcohols');
+
+async function pierwszeDodanie(){
+    try {
+        const count = await DaneAlk.countDocuments({})
+        if (count === 0) {
+            await DaneAlk.insertMany(AlkoholeArrSortedId)
+            console.log("DZIALA")
+    
+        }else {
+            console.log("Kolekcja nie jest pustaa")
+        }
+        
+    } catch (error) {
+        console.error("Błąd dodawania danych", error)
+    }
+}
+pierwszeDodanie()
+
 
 // Obsługa plików statycznych (ważne!)
 app.use(express.static(path.join(__dirname, '..'))); // Cofamy się o jeden katalog
