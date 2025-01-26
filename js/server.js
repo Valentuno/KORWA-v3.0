@@ -23,7 +23,13 @@ const daneSchemaAlk = new mongoose.Schema({
 
 });
 
+const daneSchemaUpdate = new mongoose.Schema({
+    id:Number,
+    proposedOcena: Number,
+})
+
 const DaneAlk = mongoose.model('DaneAlk', daneSchemaAlk, 'Alcohols');
+const DaneUpdates = mongoose.model('DaneUpdates', daneSchemaUpdate, 'Updates')
 
 async function pierwszeDodanie(){
     try {
@@ -63,3 +69,48 @@ app.get('/dane', async (req, res) => {
 app.listen(port, () => {
     console.log(`Serwer nasłuchuje na porcie ${port}`);
 });
+
+app.post("/proposeUpdate", express.json(), async (req, res) =>{
+    try {
+        const {id, proposedOcena} = req.body
+        const newProposal = new DaneUpdates({
+            id: parseInt(id),
+            proposedOcena,
+        })
+
+        await newProposal.save()
+
+        res.status(201).json({message: "Propozycja zapisana"})
+        console.log(newProposal)
+
+        let daneOcen = await DaneUpdates.find({id:parseFloat(id)})
+        // console.log(daneOcen) daneOcen to tablica
+        let wyliczSrednia = function () {
+            let averageOcena = 0
+            let ocenaCount = 0
+            for(let i = 0;i<daneOcen.length;i++) {
+                let ocena = daneOcen[i].proposedOcena
+                averageOcena = averageOcena + ocena
+                ocenaCount = ocenaCount + 1
+                console.log(daneOcen[i])
+                console.log(averageOcena,ocenaCount)
+            }
+            let sredniaOcena = averageOcena/ocenaCount
+            console.log(sredniaOcena)
+            return sredniaOcena.toFixed(2)
+        }
+
+
+        const alcoholDoZmiany = await DaneAlk.findOneAndUpdate(
+            {id:parseFloat(id)},
+            {ocena: wyliczSrednia()},
+            {new:true}
+        )
+        // console.log(alcoholDoZmiany)
+
+
+    } catch (error){
+        console.error("Błąd zapisu", error)
+        res.status(500).json({error:"Wystąpił błąd serwera"})
+    }
+})

@@ -1,4 +1,5 @@
 const button = document.getElementById('pobierzDane');
+const button2 = document.getElementById('aktualizujDane')
 const tabela_baza = document.getElementById("Tabela_baza").getElementsByTagName('tbody')[1]
 
 button.addEventListener('click', () => {
@@ -38,9 +39,23 @@ function wyswietlDanewTabeli(dane){
     }
 }
 
-// id:Number,
-// name:String,
-// image:String,
-// rentownosc:Number,
-// ocena:Number,
-// typ:String,
+button2.addEventListener('click', () => {
+    const id = prompt("Podaj ID produktu")
+    const proposedOcena = prompt("Podaj oceną produktu")
+
+    fetch('/proposeUpdate', {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+            id:parseFloat(id),
+            proposedOcena:proposedOcena,
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Dane do MongoDB:', data);
+    })
+    .catch(error => console.error('Błąd:', error));
+});
