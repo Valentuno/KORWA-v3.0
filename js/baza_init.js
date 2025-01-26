@@ -1,6 +1,8 @@
 let AlkoholeArr = []
 let AlkoholeArrSortedId = []
 
+let UpdatesArr = []
+
 let createAlcohol = function(name,img,rentownosc,ocena,typ) {
     let obj = {
         id: AlkoholeArr.length,
@@ -43,4 +45,43 @@ createAlcohol("Luksusowa", "images/luksusowa.png", 7.0, 5.0, "wódka");
 createAlcohol("Żubrówka", "images/żubrówka.png", 7.65, 4.89, "wódka");
 
 AlkoholeArrSortedId = AlkoholeArrSortedId.sort((a,b) => a.id - b.id)
-module.exports = AlkoholeArrSortedId
+
+let createUpdate = function(proposedOcena) {
+    let obj = {
+        id: UpdatesArr.length,
+        proposedOcena: proposedOcena,
+    }
+    UpdatesArr.push(obj)
+}
+
+createUpdate(6.78);
+createUpdate(6.34);
+createUpdate(6.71);
+createUpdate(6.3);
+createUpdate(6.22);
+createUpdate(3.84);
+createUpdate(6.21);
+createUpdate(6.1);
+createUpdate(6.03);
+createUpdate(5.47);
+createUpdate(5.41);
+createUpdate(5.34);
+createUpdate(5.17);
+createUpdate(4.79);
+createUpdate(4.7);
+createUpdate(4.59);
+createUpdate(4.17);
+createUpdate(7.23);
+createUpdate(7.01);
+createUpdate(6.73);
+createUpdate(6.51);
+createUpdate(6.49);
+createUpdate(5.97);
+createUpdate(5.83);
+createUpdate(5.44);
+createUpdate(5.0);
+createUpdate(4.89);
+
+
+module.exports = {AlkoholeArrSortedId:AlkoholeArrSortedId, 
+    UpdatesArr:UpdatesArr}

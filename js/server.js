@@ -6,8 +6,7 @@ const app = express();
 const port = 3000;
 const uri = 'mongodb://127.0.0.1:27017/db_webapp'; // Twój URI
 
-const AlkoholeArrSortedId = require("./baza_init")
-
+const {AlkoholeArrSortedId, UpdatesArr} = require("./baza_init")
 mongoose.connect(uri, {
 
 }).then(() => console.log('Połączono z MongoDB'))
@@ -47,6 +46,21 @@ async function pierwszeDodanie(){
     }
 }
 pierwszeDodanie()
+
+async function drugieDodanie(){
+    try{
+        const count = await DaneUpdates.countDocuments({})
+        if (count === 0) {
+            await DaneUpdates.insertMany(UpdatesArr)
+            console.log("Dodano rekordy do Updates")
+        } else {
+            console.log("Kolekcja Updates nie jest pusta")
+        }
+    } catch (error) {
+        console.error("Błąd dodawania danych", error)
+    }
+}
+drugieDodanie()
 
 
 // Obsługa plików statycznych (ważne!)

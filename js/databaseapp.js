@@ -42,20 +42,26 @@ function wyswietlDanewTabeli(dane){
 button2.addEventListener('click', () => {
     const id = prompt("Podaj ID produktu")
     const proposedOcena = prompt("Podaj oceną produktu")
-
-    fetch('/proposeUpdate', {
-        method: "POST",
-        headers: {
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify({
-            id:parseFloat(id),
-            proposedOcena:proposedOcena,
+    if (proposedOcena >= 0 && proposedOcena <=10) {
+        fetch('/proposeUpdate', {
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                id:parseFloat(id),
+                proposedOcena:proposedOcena,
+            })
         })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Dane do MongoDB:', data);
-    })
-    .catch(error => console.error('Błąd:', error));
+        .then(response => response.json())
+        .then(data => {
+            console.log('Dane do MongoDB:', data);
+        })
+        .catch(error => console.error('Błąd:', error));
+    }
+    else {
+        window.alert("Podaj poprawne dane")
+    }
+    
+
 });
