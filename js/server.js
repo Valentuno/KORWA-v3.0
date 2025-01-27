@@ -92,35 +92,79 @@ app.post("/proposeUpdate", express.json(), async (req, res) =>{
             proposedOcena,
         })
 
-        await newProposal.save()
+        let checkexistance = await DaneAlk.find({id:parseFloat(id)})
+        if (checkexistance.length >0) {
+            console.log("ISTNIEJE taki rekord",checkexistance.length)
+            await newProposal.save()
 
-        res.status(201).json({message: "Propozycja zapisana"})
-        console.log(newProposal)
-
-        let daneOcen = await DaneUpdates.find({id:parseFloat(id)})
-        // console.log(daneOcen) daneOcen to tablica
-        let wyliczSrednia = function () {
-            let averageOcena = 0
-            let ocenaCount = 0
-            for(let i = 0;i<daneOcen.length;i++) {
-                let ocena = daneOcen[i].proposedOcena
-                averageOcena = averageOcena + ocena
-                ocenaCount = ocenaCount + 1
-                console.log(daneOcen[i])
-                console.log(averageOcena,ocenaCount)
+            res.status(201).json({message: "Propozycja zapisana"})
+            console.log(newProposal)
+    
+            let daneOcen = await DaneUpdates.find({id:parseFloat(id)})
+            // console.log(daneOcen) daneOcen to tablica
+            let wyliczSrednia = function () {
+                let averageOcena = 0
+                let ocenaCount = 0
+                for(let i = 0;i<daneOcen.length;i++) {
+                    let ocena = daneOcen[i].proposedOcena
+                    averageOcena = averageOcena + ocena
+                    ocenaCount = ocenaCount + 1
+                    // console.log(daneOcen[i])
+                    // console.log(averageOcena,ocenaCount)
+                }
+                let sredniaOcena = averageOcena/ocenaCount
+                console.log(sredniaOcena)
+                return sredniaOcena.toFixed(2)
             }
-            let sredniaOcena = averageOcena/ocenaCount
-            console.log(sredniaOcena)
-            return sredniaOcena.toFixed(2)
+    
+    
+            const alcoholDoZmiany = await DaneAlk.findOneAndUpdate(
+                {id:parseFloat(id)},
+                {ocena: wyliczSrednia()},
+                {new:true}
+            )
+            // console.log(alcoholDoZmiany)
+        } else {
+            console.log("Nie ma takiego ID - nie dodano rekordu do kolekcji Updates")
         }
 
 
-        const alcoholDoZmiany = await DaneAlk.findOneAndUpdate(
-            {id:parseFloat(id)},
-            {ocena: wyliczSrednia()},
-            {new:true}
-        )
-        // console.log(alcoholDoZmiany)
+
+
+    } catch (error){
+        console.error("Błąd zapisu", error)
+        res.status(500).json({error:"Wystąpił błąd serwera"})
+    }
+})
+
+app.post("/dodajRekord", express.json(), async (req, res) =>{
+    try {
+        const {name,image,rentownosc,ocena,typ} = req.body
+        let liczbaArray = await DaneAlk.find({})
+        const newRecord = new DaneAlk({
+            id: liczbaArray.length,
+            name,
+            image,
+            rentownosc,
+            ocena,
+            typ
+        })
+
+        let checkexistance = await DaneAlk.findOne({name:name})
+        console.log("CHECKED", checkexistance)
+        if (checkexistance == null) {
+            await newRecord.save()
+
+            res.status(201).json({message: "Propozycja zapisana"})
+            console.log("Dodano do bazy",newRecord)
+        } else {
+            console.log("Istnieje juz taki rekord")
+        }
+
+
+    
+
+
 
 
     } catch (error){

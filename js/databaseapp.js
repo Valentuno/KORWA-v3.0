@@ -1,5 +1,6 @@
 const button = document.getElementById('pobierzDane');
 const button2 = document.getElementById('aktualizujDane')
+const button3 = document.getElementById("dodajDane")
 const tabela_baza = document.getElementById("Tabela_baza").getElementsByTagName('tbody')[1]
 
 button.addEventListener('click', () => {
@@ -62,6 +63,35 @@ button2.addEventListener('click', () => {
     else {
         window.alert("Podaj poprawne dane")
     }
+    
+
+});
+
+button3.addEventListener('click', () => {
+    const name = prompt("Podaj nazwę produktu")
+    const image = prompt("Podaj ścieżkę do zdjęcia produktu")
+    const rentownosc = prompt("Podaj rentownosc produktu")
+    const ocena = prompt("Podaj ocenę produktu")
+    const typ = prompt("Podaj typ produktu")
+    fetch('/dodajRekord', {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+            name:name,
+            image:image,
+            rentownosc:rentownosc,
+            ocena:ocena,
+            typ:typ
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Dane dodane do MongoDB:', data);
+    })
+    .catch(error => console.error('Błąd:', error));
+
     
 
 });
