@@ -103,6 +103,9 @@
     flex-direction: column;
     gap: 20px;
 }
+#finder {
+    cursor: pointer;
+}
 
 @media (width<1280px) {
     .kalkulator-section{
