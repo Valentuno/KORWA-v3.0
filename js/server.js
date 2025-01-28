@@ -234,6 +234,7 @@ app.post("/login", express.json(), async (req, res) =>{
                 console.log("UDANE ZALOGWANIE")
                 // res.status(201).json({message: "Udało się zalogować"})
                 console.log("")
+                return res.redirect('/udanarejestracja.html')
             } else {
                 console.log("podałeś błędne hasło")
             }

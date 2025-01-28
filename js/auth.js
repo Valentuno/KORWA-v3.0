@@ -26,11 +26,12 @@ register_button.addEventListener('click', () => {
 
 });
 
-login_button.addEventListener('click', () => {
+login_button.addEventListener('click', async () => {
   const login = document.getElementById("login-username").value
   const password = document.getElementById("login-password").value
 
-  fetch('/login', {
+  try {
+    const response = await fetch('/login', {
       method: "POST",
       headers: {
           "Content-Type":"application/json"
@@ -38,15 +39,21 @@ login_button.addEventListener('click', () => {
       body: JSON.stringify({
         login:login,
         password:password
-      })
-  })
-  .then(response => response.json())
-  .then(data => {
-      console.log('Dane dodane do MongoDB:', data);
-      console.log("Udane logowanie");
-  })
-  .catch(error => console.error('Błąd:', error));
+      })})
 
-  
+      if (response.redirected) {
+        // Przekierowanie na inną stronę
+        window.location.href = response.url;
+      } else {
+        const data = await response.json();
+        if (data.message) {
+            alert(data.message); // Wyświetlenie komunikatu
+        }}
+
+      } catch (error) {
+        console.log(error)
+
+  }
+
 
 });
