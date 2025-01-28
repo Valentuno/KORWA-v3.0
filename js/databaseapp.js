@@ -1,6 +1,7 @@
 const button = document.getElementById('pobierzDane');
 const button2 = document.getElementById('aktualizujDane')
 const button3 = document.getElementById("dodajDane")
+const button4 = document.getElementById("usunDane")
 const tabela_baza = document.getElementById("Tabela_baza").getElementsByTagName('tbody')[1]
 
 button.addEventListener('click', () => {
@@ -94,4 +95,13 @@ button3.addEventListener('click', () => {
 
     
 
+});
+
+button4.addEventListener("click", () => {
+    const id = prompt("Podaj ID do usunięcia")
+    fetch('/danedous/' + id, {
+        method: "DELETE",
+    })
+    .then(response => response.json())
+    .catch(error => console.error('Błąd:', error));
 });

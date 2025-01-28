@@ -172,3 +172,16 @@ app.post("/dodajRekord", express.json(), async (req, res) =>{
         res.status(500).json({error:"Wystąpił błąd serwera"})
     }
 })
+
+app.delete('/danedous/:id', async (req, res) => {
+    try {
+        const {id} = req.params
+
+        const deletedDocument = await DaneAlk.findOneAndDelete({id:id});
+        res.json({message: "Usunieto rekord"});
+        console.log("USUNELO")
+    } catch (error) {
+        console.error('Błąd pobierania danych:', error);
+        res.status(500).json({ error: 'Wystąpił błąd serwera' });
+    }
+});
