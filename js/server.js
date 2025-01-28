@@ -210,10 +210,17 @@ app.post("/dodajUzytkownik", express.json(), async (req, res) =>{
             password: hashedPassword,
         })
 
-        await newRecord.save()
+        let checkexistance = DaneUsers.findOne({login:login})
+        if (!checkexistance) {
+            await newRecord.save()
 
-        res.status(201).json({message: "Propozycja zapisana"})
-        console.log("Dodano do bazy",newRecord)
+            res.status(201).json({message: "Propozycja zapisana"})
+            console.log("Dodano do bazy",newRecord)
+        } else {
+            console.log("Istnieje juz taki uzytkownik")
+        }
+
+
         
     } catch (error){
         console.error("Błąd zapisu", error)
