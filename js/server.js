@@ -176,10 +176,15 @@ app.post("/dodajRekord", express.json(), async (req, res) =>{
 app.delete('/danedous/:id', async (req, res) => {
     try {
         const {id} = req.params
+        let checkexistance = await DaneAlk.findOne({id:id})
+        if (checkexistance) {
+            const deletedDocument = await DaneAlk.findOneAndDelete({id:id});
+            res.json({message: "Usunieto rekord"});
+            console.log("USUNELO")
+        } else {
+            console.log("Takie ID nie istnieje")
+        }
 
-        const deletedDocument = await DaneAlk.findOneAndDelete({id:id});
-        res.json({message: "Usunieto rekord"});
-        console.log("USUNELO")
     } catch (error) {
         console.error('Błąd pobierania danych:', error);
         res.status(500).json({ error: 'Wystąpił błąd serwera' });
