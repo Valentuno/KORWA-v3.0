@@ -65,4 +65,80 @@ input_cena.oninput = function() {
     funkcja_obliczajaca()
 }
 
+let finder2 = document.getElementById("finder")
+let podobne1nazwa = document.getElementById("podobne-nazwa1")
+let podobne1img = document.getElementById("podobne-image1")
+let podobne1rent = document.getElementById("podobne-rent1")
+let podobne2nazwa = document.getElementById("podobne-nazwa2")
+let podobne2img = document.getElementById("podobne-image2")
+let podobne2rent = document.getElementById("podobne-rent2")
+
+
+
+
+function czyszczenie() {
+    podobne1nazwa.innerHTML = ""
+    podobne1img.src = ""
+    podobne1rent.innerHTML = ""
+    podobne2nazwa.innerHTML = ""
+    podobne2img.scr = ""
+    podobne2rent.innerHTML = ""
+}
+
+
+
+function wyswietlDanewPodobne(dane){
+    let testArray = []
+    console.log("Wyswietlam dane podobne")
+    czyszczenie()
+    let g = parseFloat(document.getElementById("rentownosc").innerHTML)
+    for(let i = 0;i<dane.length;i++) {
+        let a = dane[i]
+        let b=a.name
+        let c =a.rentownosc-g
+        c = Math.abs(c)
+        c = parseFloat(c)
+        d = a.image,
+        e = a.rentownosc,
+        f = a.ocena
+        h = a.typ
+        let obj = {
+        name:b,
+        image:d,
+        rentownosc:e,
+        ocena:f,
+        typ:h,
+        odleglosc:c
+
+        }
+        testArray.push(obj)
+        
+        
+    }
+    testArray = testArray.sort((a,b)=> a.odleglosc - b.odleglosc)
+    let obj1 = testArray[0]
+    let obj2 = testArray[1]
+    podobne1nazwa.innerHTML = obj1.name
+    podobne1img.src = obj1.image
+    podobne1rent.innerHTML = obj1.rentownosc
+    podobne2nazwa.innerHTML = obj2.name
+    podobne2img.src = obj2.image
+    podobne2rent.innerHTML = obj2.rentownosc
+}
+
+let oblicz = function () {
+    console.log("dupa")
+}
+finder2.onclick = oblicz()
+
+
+finder2.addEventListener('click', () => {
+    fetch('/danepodobne') // Żądanie do endpointu /dane
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.length)
+            wyswietlDanewPodobne(data)
+        })
+        .catch(error => console.error('Błąd:', error));
+});
 

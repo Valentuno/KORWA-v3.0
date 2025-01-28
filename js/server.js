@@ -210,8 +210,9 @@ app.post("/dodajUzytkownik", express.json(), async (req, res) =>{
             password: hashedPassword,
         })
 
-        let checkexistance = DaneUsers.findOne({login:login})
-        if (!checkexistance) {
+        let checkexistance = await DaneUsers.findOne({login:login})
+        console.log(checkexistance)
+        if (checkexistance==null) {
             await newRecord.save()
 
             res.status(201).json({message: "Propozycja zapisana"})
@@ -260,3 +261,13 @@ app.post("/login", express.json(), async (req, res) =>{
         res.status(500).json({error:"Wystąpił błąd serwera"})
     }
 })
+
+app.get('/danepodobne', async (req, res) => {
+    try {
+        const dane = await DaneAlk.find({});
+        res.json(dane);
+    } catch (error) {
+        console.error('Błąd pobierania danych:', error);
+        res.status(500).json({ error: 'Wystąpił błąd serwera' });
+    }
+});
