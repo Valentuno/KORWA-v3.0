@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const crypto = require('crypto-js');
 
 const app = express();
 const port = 3000;
@@ -27,8 +28,14 @@ const daneSchemaUpdate = new mongoose.Schema({
     proposedOcena: Number,
 })
 
+const daneUsers = new mongoose.Schema({
+    login:String,
+    password:String
+})
+
 const DaneAlk = mongoose.model('DaneAlk', daneSchemaAlk, 'Alcohols');
 const DaneUpdates = mongoose.model('DaneUpdates', daneSchemaUpdate, 'Updates')
+const DaneUsers = mongoose.model("DaneUsers", daneUsers, "Users")
 
 async function pierwszeDodanie(){
     try {
@@ -190,3 +197,58 @@ app.delete('/danedous/:id', async (req, res) => {
         res.status(500).json({ error: 'Wystąpił błąd serwera' });
     }
 });
+
+
+app.post("/dodajUzytkownik", express.json(), async (req, res) =>{
+    try {
+        const {login,password} = req.body
+
+        let hashedPassword = crypto.SHA256(password).toString()
+
+        const newRecord = new DaneUsers({
+            login,
+            password: hashedPassword,
+        })
+
+        await newRecord.save()
+
+        res.status(201).json({message: "Propozycja zapisana"})
+        console.log("Dodano do bazy",newRecord)
+        
+    } catch (error){
+        console.error("Błąd zapisu", error)
+        res.status(500).json({error:"Wystąpił błąd serwera"})
+    }
+})
+
+
+app.post("/login", express.json(), async (req, res) =>{
+    try {
+        const {login,password} = req.body
+
+        let hashedPassword = crypto.SHA256(password).toString()
+        let checkexistance = await DaneUsers.findOne({login:login})
+        if (checkexistance) {
+            
+            if (checkexistance.password == hashedPassword) {
+                console.log("UDANE ZALOGWANIE")
+                // res.status(201).json({message: "Udało się zalogować"})
+                console.log("")
+            } else {
+                console.log("podałeś błędne hasło")
+            }
+
+
+        } else {
+            console.log("nie ma takiego uzytkownika")
+        }
+
+
+
+
+        
+    } catch (error){
+        console.error("Błąd zapisu", error)
+        res.status(500).json({error:"Wystąpił błąd serwera"})
+    }
+})

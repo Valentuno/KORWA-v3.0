@@ -1,0 +1,78 @@
+/* Kolory i styl */
+:root {
+    --navy: #001a4d;
+    --beige: #f4f4f9;
+    --white: #ffffff;
+    --red: #d72638;
+    --font-main: 'Arial', sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-main);
+    background-color: var(--beige);
+    color: var(--navy);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container, .register-container {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .login-container h1 {
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .btn {
+    background: var(--red);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .btn:hover {
+    background: #b51f30;
+  }
+  
+  .error-message {
+    color: var(--red);
+    margin-top: 10px;
+  }
+
+  .wrapper {
+    justify-content: center;
+    gap: 200px;
+  }
+  
