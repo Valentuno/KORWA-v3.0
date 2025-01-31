@@ -75,4 +75,8 @@
     justify-content: center;
     gap: 200px;
   }
+  .message {
+    margin-top: 10px;
+    font-weight: bold;
+  }
   
