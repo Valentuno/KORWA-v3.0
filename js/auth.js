@@ -19,6 +19,7 @@ register_button.addEventListener('click', () => {
   })
   .then(response => response.json())
   .then(data => {
+    console.log("Odpowiedź z serwera:", data);
     if (data.message === "Propozycja zapisana") {
       register_message.textContent = "Rejestracja udana!";
       register_message.style.color = "green";
@@ -53,6 +54,7 @@ login_button.addEventListener('click', async () => {
         // Przekierowanie na inną stronę
         window.location.href = response.url;
       } else {
+        const data = await response.json();
         if (data.message) {
           login_message.textContent = "Błędny login/hasło";
           login_message.style.color = "red";
