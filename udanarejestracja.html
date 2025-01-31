@@ -1,11 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil użytkownika</title>
+  <link rel="stylesheet" href="css/udanarejestracja.css">
+  <link rel="stylesheet" href="css/index_styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1> UDAŁO CI SIE ZALOGOWAĆ</h1>
+  <header>
+    <div class="wrapper">
+      <div class="logo-container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo.png" alt="" width="185px" height="72px">
+          </a>
+        </div>
+        <div class="divider"></div>
+        <div class="logo-text white-text">
+          <p>Dotarłeś do miejsca gdzie trzeźwość mówi dobranoc</p>
+        </div>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href="kalkulator.html">Kalkulator</a></li>
+          <li><a href="baza.html">Baza Alkoholi</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrapper">
+      <div class="profile-container">
+        <div class="profile-picture-container">
+          <img src="images/user_avatar.png" alt="User avatar" class="profile-picture">
+        </div>
+        <div class="profile-info">
+          <h1>Mariusz Pudzianowski</h1>
+          <p class="profile-description">Patriota, kulturysta oraz wybitny smakosz trunków wyskokowych.</p>
+
+          <div class="profile-section">
+            <h2>Informacje podstawowe</h2>
+            <ul class="profile-details">
+              <li>Ulubiony alkohol:  <span> Harnaś</span> <img src="images/harnaś.png" alt="Harnaś" class="alcohol-icon"></li>
+              <li>Data utworzenia konta:  <span> 2023-01-31</span></li>
+              <li>Kraj:  <span> Polska</span></li>
+            </ul>
+          </div>
+
+          <div class="profile-section">
+            <h2>Dane użytkownika</h2>
+            <ul class="contact-info">
+              <li><i class="fa-solid fa-phone"></i> Telefon: <span> 123456789</span></li>
+              <li><i class="fa-solid fa-envelope"></i> Email: <span> pudzian@example.com</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-main wrapper">
+      <div class="half half1">
+        <h4>Kontakt</h4>
+        <p><i class="fa-solid fa-phone"></i> Telefon: <a href="phone:123123123">123123123</a></p>
+        <p><i class="fa-solid fa-envelope"></i> Mail: <a href="mailto:example@example.com">example@example.com</a></p>
+      </div>
+      <div class="half half2">
+        <h4>BIURO</h4>
+        <p><i class="fa-solid fa-map-pin"></i> Lokalizacja: <a target="_blank" href="https://www.google.com/maps/place/Szybka+1F,+50-421+Wroc%C5%82aw/@51.1019925,17.05214,17z/data=!3m1!4b1!4m6!3m5!1s0x470fc2875d2c3fdb:0x8a6cf9594e46925f!8m2!3d51.1019892!4d17.0547203!16s%2Fg%2F11c2771bcw?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D">Szybka 1f <br> 50-421 Wrocław</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
+
 </html>
