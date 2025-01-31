@@ -1,5 +1,7 @@
 const login_button = document.getElementById("login-button")
 const register_button = document.getElementById("register-button")
+const register_message = document.getElementById("register-message");
+const login_message = document.getElementById("login-message");
 
 register_button.addEventListener('click', () => {
   const login = document.getElementById("register-username").value
@@ -17,13 +19,19 @@ register_button.addEventListener('click', () => {
   })
   .then(response => response.json())
   .then(data => {
-      console.log('Dane dodane do MongoDB:', data);
-      console.log("Pomyslna rejestracja");
+    if (data.message === "Propozycja zapisana") {
+      register_message.textContent = "Rejestracja udana!";
+      register_message.style.color = "green";
+    } else {
+      register_message.textContent = "Istnieje już taki użytkownik!";
+      register_message.style.color = "red";
+    }
   })
-  .catch(error => console.error('Błąd:', error));
-
-  
-
+  .catch(error => {
+    console.error('Błąd:', error);
+    register_message.textContent = "Rejestracja nie udana :(";
+    register_message.style.color = "red";
+  });
 });
 
 login_button.addEventListener('click', async () => {
@@ -45,15 +53,16 @@ login_button.addEventListener('click', async () => {
         // Przekierowanie na inną stronę
         window.location.href = response.url;
       } else {
-        const data = await response.json();
         if (data.message) {
-            alert(data.message); // Wyświetlenie komunikatu
-        }}
-
-      } catch (error) {
-        console.log(error)
-
-  }
+          login_message.textContent = "Błędny login/hasło";
+          login_message.style.color = "red";
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      login_message.textContent = "Błędny login/hasło";
+      login_message.style.color = "red";
+    }
 
 
 });
