@@ -219,6 +219,7 @@ app.post("/dodajUzytkownik", express.json(), async (req, res) =>{
             console.log("Dodano do bazy",newRecord)
         } else {
             console.log("Istnieje juz taki uzytkownik")
+            res.status(400).json({ message: "Istnieje już taki użytkownik" });
         }
 
 
@@ -245,11 +246,13 @@ app.post("/login", express.json(), async (req, res) =>{
                 return res.redirect('/udanarejestracja.html')
             } else {
                 console.log("podałeś błędne hasło")
+                res.status(400).json({ message: "Błędny login/hasło" });
             }
 
 
         } else {
             console.log("nie ma takiego uzytkownika")
+            res.status(400).json({ message: "nie ma takiego uzytkownika" });
         }
 
 
