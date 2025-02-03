@@ -1,3 +1,4 @@
+// Pobieranie elementów DOM związanych z suwakami i polami input
 let slider_pojemnosc = document.getElementById("slider-pojemnosc")
 let input_pojemnosc = document.getElementById("input-pojemnosc")
 
@@ -6,8 +7,10 @@ let input_zawartosc = document.getElementById("input-zawartosc")
 
 let input_cena = document.getElementById("input-cena")
 
+// Ustawienie początkowej wartości pola input_pojemnosc na wartość suwaka
 input_pojemnosc.value = slider_pojemnosc.value
 
+// Funkcja obliczająca gramaturę i opłacalność na podstawie wartości z suwaków i inputów
 let funkcja_obliczajaca = function() {
     let pojemnosc = parseFloat(slider_pojemnosc.value)
     let zawartosc = parseFloat(slider_zawartosc.value)*0.01
@@ -23,6 +26,7 @@ let funkcja_obliczajaca = function() {
     rentownoschtml.innerHTML = oplacalnosc 
 }
 
+// Obsługa zdarzenia zmiany pojemnosci
 slider_pojemnosc.oninput = function () {
     input_pojemnosc.value = this.value
     funkcja_obliczajaca()
@@ -39,6 +43,7 @@ input_pojemnosc.oninput = function() {
     funkcja_obliczajaca()
 }
 
+// Obsługa zdarzenia zmiany zawartości
 slider_zawartosc.oninput = function() {
     input_zawartosc.value = this.value
     funkcja_obliczajaca()
@@ -55,6 +60,7 @@ input_zawartosc.oninput = function() {
     funkcja_obliczajaca()
 }
 
+// Obsługa zdarzenia zmiany ceny
 input_cena.oninput = function() {
     if (input_cena.value > 10000) {
         input_cena.value = 10000
@@ -65,6 +71,7 @@ input_cena.oninput = function() {
     funkcja_obliczajaca()
 }
 
+// Pobieranie elementów DOM związanych z wyświetlaniem podobnych produktów
 let finder2 = document.getElementById("finder")
 let podobne1nazwa = document.getElementById("podobne-nazwa1")
 let podobne1img = document.getElementById("podobne-image1")
@@ -73,9 +80,7 @@ let podobne2nazwa = document.getElementById("podobne-nazwa2")
 let podobne2img = document.getElementById("podobne-image2")
 let podobne2rent = document.getElementById("podobne-rent2")
 
-
-
-
+// Funkcja czyszcząca zawartość elementów wyświetlających podobne produkty
 function czyszczenie() {
     podobne1nazwa.innerHTML = ""
     podobne1img.src = ""
@@ -85,8 +90,7 @@ function czyszczenie() {
     podobne2rent.innerHTML = ""
 }
 
-
-
+// Funkcja wyświetlająca dane podobnych produktów
 function wyswietlDanewPodobne(dane){
     let testArray = []
     console.log("Wyswietlam dane podobne")
@@ -115,6 +119,7 @@ function wyswietlDanewPodobne(dane){
         
         
     }
+    // Sortowanie produktów według odległości od aktualnej rentowności
     testArray = testArray.sort((a,b)=> a.odleglosc - b.odleglosc)
     let obj1 = testArray[0]
     let obj2 = testArray[1]
@@ -129,6 +134,7 @@ function wyswietlDanewPodobne(dane){
 let oblicz = function () {
     console.log("dupa")
 }
+
 finder2.onclick = oblicz()
 
 
@@ -141,4 +147,3 @@ finder2.addEventListener('click', () => {
         })
         .catch(error => console.error('Błąd:', error));
 });
-
