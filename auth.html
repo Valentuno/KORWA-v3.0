@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="pl">
   <head>
+    <!-- Definiowanie metadanych strony -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logowanie</title>
+
+    <!-- Łączenie zewnętrznych arkuszy stylów CSS -->
     <link rel="stylesheet" href="css/index_styles.css" />
     <link rel="stylesheet" href="css/auth.css" />
+
+    <!-- Łączenie zewnętrznej biblioteki ikon Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -13,6 +18,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <!-- Łączenie zewnętrznych czcionek Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,9 +34,12 @@
     />
   </head>
   <body>
+    <!-- Kontener główny strony -->
     <div class="wrapper">
+      <!-- Sekcja rejestracji -->
       <div class="register-container">
         <h1>Rejestracja</h1>
+        <!-- Formularz rejestracji -->
         <div class="form-group">
           <label for="username">Nazwa użytkownika</label>
           <input
@@ -46,12 +56,18 @@
             placeholder="Wprowadź hasło"
           />
         </div>
+        <!-- Przycisk rejestracji -->
         <button class="btn" id="register-button">Zarejestruj się</button>
+        <!-- Komunikat o wyniku rejestracji -->
         <p id="register-message" class="message"></p>
+        <!-- Komunikat o błędzie -->
         <p class="error-message" id="error-message"></p>
       </div>
+
+      <!-- Sekcja logowania -->
       <div class="login-container">
         <h1>Logowanie</h1>
+        <!-- Formularz logowania -->
         <div class="form-group">
           <label for="username">Nazwa użytkownika</label>
           <input
@@ -68,12 +84,16 @@
             placeholder="Wprowadź hasło"
           />
         </div>
+        <!-- Przycisk logowania -->
         <button class="btn" id="login-button">Zaloguj</button>
+        <!-- Komunikat o wyniku logowania -->
         <p id="login-message" class="message"></p>
+        <!-- Komunikat o błędzie -->
         <p class="error-message" id="error-message"></p>
       </div>
     </div>
 
+    <!-- Łączenie zewnętrznego skryptu JavaScript -->
     <script src="js/auth.js"></script>
   </body>
 </html>
