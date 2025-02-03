@@ -1,112 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Definiowanie metadanych strony -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KORWA PRJECT</title>
-    <link rel="stylesheet" href="css/index_styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-</head>
-<body>
+
+    <!-- Link do arkusza stylów CSS -->
+    <link rel="stylesheet" href="css/index_styles.css" />
+
+    <!-- Link do ikon Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Link do czcionek Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Sekcja nagłówka strony -->
     <header>
-        <div class="wrapper">
-            <div class="logo-container">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/logo.png" alt="" width="185px" height="72px">
-                    </a>
-                    
-                </div>
-                <div class="divider"></div>
-                <div class="logo-text white-text"> <p>Dotarłeś do miejsca gdzie trzeźwość mówi dobranoc</p></div>
-            </div>
-            
-            <div class="menu">
-                <ul>
-                    <li><a href="kalkulator.html">Kalkulator</a></li>
-                    <li><a href="baza.html">Baza Alkoholi</a></li>
-                </ul>
-            </div>
+      <div class="wrapper">
+        <!-- Kontener z logo i tekstem -->
+        <div class="logo-container">
+          <div class="logo">
+            <a href="index.html">
+              <img src="images/logo.png" alt="" width="185px" height="72px" />
+            </a>
+          </div>
+          <div class="divider"></div>
+          <div class="logo-text white-text">
+            <p>Dotarłeś do miejsca gdzie trzeźwość mówi dobranoc</p>
+          </div>
         </div>
-        
+
+        <!-- Menu nawigacyjne -->
+        <div class="menu">
+          <ul>
+            <li><a href="kalkulator.html">Kalkulator</a></li>
+            <li><a href="baza.html">Baza Alkoholi</a></li>
+          </ul>
+        </div>
+      </div>
     </header>
 
+    <!-- Główna sekcja strony -->
     <main>
-
-        <div class="section1 wrapper">
-            <div class="section1-opis">
-                <h1>DLA STUDENTÓW, OD STUDENTÓW</h1>
-                <p>K.O.R.W.A to projekt stworzony przez grupę niezwykle utalentowanych studentów z Uniwersytetu Ekonomicznego we Wrocławiu. Coś co na początku było jedynie projektem na zajęcia przerodziło się w obiecujący startup. Już od ponad 2 lat ułatwiamy studentóm dopasowywać libacje alkoholowe do obowiązującego budżetu</p>
-                <a class="button" href="#more">Dowiedz się więcej</a>
-            </div>
-            <div class="section1-img">
-                <img src="images/damian.jpg" alt="" >
-            </div>
+      <!-- Sekcja 1: Opis projektu -->
+      <div class="section1 wrapper">
+        <div class="section1-opis">
+          <h1>DLA STUDENTÓW, OD STUDENTÓW</h1>
+          <p>
+            K.O.R.W.A to projekt stworzony przez grupę niezwykle utalentowanych
+            studentów z Uniwersytetu Ekonomicznego we Wrocławiu. Coś co na
+            początku było jedynie projektem na zajęcia przerodziło się w
+            obiecujący startup. Już od ponad 2 lat ułatwiamy studentóm
+            dopasowywać libacje alkoholowe do obowiązującego budżetu
+          </p>
+          <a class="button" href="#more">Dowiedz się więcej</a>
         </div>
-
-        <div class="section2 wrapper" id="more">
-            <div class="section2-opis">
-                <h2>Czym jest KORWA</h2>
-                <p>KORWA to akronim Kalkulatora Obliczajacego Rentownosc Wywarow Alkoholowych, narzedzie specjalnie skonstruowane dla Studentow aby odciazyc ich portfele.</p>
-            </div>
+        <div class="section1-img">
+          <img src="images/damian.jpg" alt="" />
         </div>
+      </div>
 
-        <div class="section3 wrapper">
-            <div class="section3-img">
-                <img src="images/piwsko.jpg" alt="">
-            </div>
-            <div class="section3-sub">
-                <h3>Gdy zdecydujesz się na subskrybcję</h3>
-                <div class="texboxy">
-                    <div class="textbox">
-                        <h4>Wiesz za ile pijesz</h4>
-                        <p>najlepszy kalkulator na runku korzystający z nowoczesnej technologii liczącej opłacalność trunku według skali menelixa</p>
-                    </div>
-                    <div class="textbox">
-                        <h4>Podejmujesz świadome decyzje</h4>
-                        <p>juz nigdy nie przeplacisz za malo rentowny alkohol! Z nami mozesz przestac sie bac o swoj portfel podczas imprezowania!</p>
-                    </div>
-                    <div class="textbox">
-                        <h4>Masz dostęp do bazy alkoholi</h4>
-                        <p>Ponad 100 napoji wyskokowych, skategoryzowanych na podstawie rentownosci oraz smaku! Ankety zostale przeprowadzone na UE we Wroclawiue</p>
-                    </div>
-                </div>
-                <a href="auth.html" class="button">Dołącz do nas</a>
-            </div>
+      <!-- Sekcja 2: Czym jest KORWA -->
+      <div class="section2 wrapper" id="more">
+        <div class="section2-opis">
+          <h2>Czym jest KORWA</h2>
+          <p>
+            KORWA to akronim Kalkulatora Obliczajacego Rentownosc Wywarow
+            Alkoholowych, narzedzie specjalnie skonstruowane dla Studentow aby
+            odciazyc ich portfele.
+          </p>
         </div>
+      </div>
 
-
-        <footer>
-            <div class="footer-main wrapper">
-                <div class="half half1">
-                    <h4>KONTAKT</h4>
-                    <p><i class="fa-solid fa-phone"></i> Telefon: <a href="phone:123123123">123123123</a></p>
-                    <p><i class="fa-solid fa-envelope"></i> Mail: <a href="mailto:example@example.com">example@example.com</a></p>
-                    
-                   
-                </div>
-                <div class="half half2">
-                    <h4>BIURO</h4>
-                    <p><i class="fa-solid fa-map-pin"></i> Lokalizacja: <a target="_blank" href="https://www.google.com/maps/place/Szybka+1F,+50-421+Wroc%C5%82aw/@51.1019925,17.05214,17z/data=!3m1!4b1!4m6!3m5!1s0x470fc2875d2c3fdb:0x8a6cf9594e46925f!8m2!3d51.1019892!4d17.0547203!16s%2Fg%2F11c2771bcw?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D">Szybka 1f <br> 50-421 Wrocław</a></p>
-                    
-                </div>
+      <!-- Sekcja 3: Korzyści z subskrypcji -->
+      <div class="section3 wrapper">
+        <div class="section3-img">
+          <img src="images/piwsko.jpg" alt="" />
+        </div>
+        <div class="section3-sub">
+          <h3>Gdy zdecydujesz się na subskrybcję</h3>
+          <div class="texboxy">
+            <div class="textbox">
+              <h4>Wiesz za ile pijesz</h4>
+              <p>
+                najlepszy kalkulator na runku korzystający z nowoczesnej
+                technologii liczącej opłacalność trunku według skali menelixa
+              </p>
             </div>
-        </footer>
+            <div class="textbox">
+              <h4>Podejmujesz świadome decyzje</h4>
+              <p>
+                juz nigdy nie przeplacisz za malo rentowny alkohol! Z nami
+                mozesz przestac sie bac o swoj portfel podczas imprezowania!
+              </p>
+            </div>
+            <div class="textbox">
+              <h4>Masz dostęp do bazy alkoholi</h4>
+              <p>
+                Ponad 100 napoji wyskokowych, skategoryzowanych na podstawie
+                rentownosci oraz smaku! Ankety zostale przeprowadzone na UE we
+                Wroclawiue
+              </p>
+            </div>
+          </div>
+          <a href="auth.html" class="button">Dołącz do nas</a>
+        </div>
+      </div>
 
+      <!-- Stopka strony -->
+      <footer>
+        <div class="footer-main wrapper">
+          <div class="half half1">
+            <h4>KONTAKT</h4>
+            <p>
+              <i class="fa-solid fa-phone"></i> Telefon:
+              <a href="phone:123123123">123123123</a>
+            </p>
+            <p>
+              <i class="fa-solid fa-envelope"></i> Mail:
+              <a href="mailto:example@example.com">example@example.com</a>
+            </p>
+          </div>
+          <div class="half half2">
+            <h4>BIURO</h4>
+            <p>
+              <i class="fa-solid fa-map-pin"></i> Lokalizacja:
+              <a
+                target="_blank"
+                href="https://www.google.com/maps/place/Szybka+1F,+50-421+Wroc%C5%82aw/@51.1019925,17.05214,17z/data=!3m1!4b1!4m6!3m5!1s0x470fc2875d2c3fdb:0x8a6cf9594e46925f!8m2!3d51.1019892!4d17.0547203!16s%2Fg%2F11c2771bcw?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D"
+                >Szybka 1f <br />
+                50-421 Wrocław</a
+              >
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
 
-
-
-
-
-
-
+    <!-- Link do skryptu JavaScript -->
     <script src="js/app.js"></script>
-</body>
+  </body>
 </html>
