@@ -1,116 +1,197 @@
-<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Kulkilator</title>
-        <link rel="stylesheet" href="css/index_styles.css">
-        <link rel="stylesheet" href="css/kalkulator.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    </head>
-<body>
+  <head>
+    <!-- Definiowanie metadanych strony -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kulkilator</title>
+
+    <!-- Linki do arkuszy stylów CSS -->
+    <link rel="stylesheet" href="css/index_styles.css" />
+    <link rel="stylesheet" href="css/kalkulator.css" />
+
+    <!-- Link do ikon Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Linki do czcionek Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Sekcja nagłówka strony -->
     <header>
-        <div class="wrapper">
-            <div class="logo-container">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/logo.png" alt="" width="185px" height="72px">
-                    </a>
-                </div>
-                <div class="divider"></div>
-                <div class="logo-text white-text"> <p>Dotarłeś do miejsca gdzie trzeźwość mówi dobranoc</p></div>
-            </div>
-            
-            <div class="menu">
-                <ul>
-                    <li><a id="active-calc-link" href="kalkulator.html">Kalkulator</a></li>
-                    <li><a href="baza.html">Baza Alkoholi</a></li>
-                </ul>
-            </div>
+      <div class="wrapper">
+        <!-- Kontener z logo i tekstem -->
+        <div class="logo-container">
+          <div class="logo">
+            <a href="index.html">
+              <img src="images/logo.png" alt="" width="185px" height="72px" />
+            </a>
+          </div>
+          <div class="divider"></div>
+          <div class="logo-text white-text">
+            <p>Dotarłeś do miejsca gdzie trzeźwość mówi dobranoc</p>
+          </div>
         </div>
-        
+
+        <!-- Menu nawigacyjne -->
+        <div class="menu">
+          <ul>
+            <li>
+              <a id="active-calc-link" href="kalkulator.html">Kalkulator</a>
+            </li>
+            <li><a href="baza.html">Baza Alkoholi</a></li>
+          </ul>
+        </div>
+      </div>
     </header>
 
-
+    <!-- Sekcja kalkulatora -->
     <div class="kalkulator-section wrapper">
-        <div class="half">
-            <h1>Kalkulator</h1>
-            <h3>Pojemnosc(ml)</h3>
-            <div class="input-wrapper">
-                <input type="range" min="10" max="1000" step="1" value="500" id="slider-pojemnosc" class="slider">
-                <input type="number" min="10" max="1000" value="500" id="input-pojemnosc" class="number-input">
-            </div>
-            <h3>Zawartość Alkoholu(%)</h3>
-            <div class="input-wrapper">
-                <input type="range" min="1" max="100" step="1" value="6" id="slider-zawartosc" class="slider">
-                <input type="number" min="1" max="100" value="6" id="input-zawartosc" class="number-input">
-            </div>
-            <h3 class="cena-wrapper">Cena(zł)</h3>
-            <div class="input-wrapper cena-wrapper">
-                <input type="number" min="1" max="10000" value="4.5" id="input-cena" class="number-input">
-            </div>
-            
+      <div class="half">
+        <h1>Kalkulator</h1>
+
+        <!-- Input: Pojemność (ml) -->
+        <h3>Pojemnosc(ml)</h3>
+        <div class="input-wrapper">
+          <input
+            type="range"
+            min="10"
+            max="1000"
+            step="1"
+            value="500"
+            id="slider-pojemnosc"
+            class="slider"
+          />
+          <input
+            type="number"
+            min="10"
+            max="1000"
+            value="500"
+            id="input-pojemnosc"
+            class="number-input"
+          />
         </div>
-        <div class="half half-wyniki">
-            <div class="wyniki">
-                <h2>Wyniki:</h2>
-                <div class="wyniki-single">
-                    <h3>
-                        Zawartość etanolu (g):
-                    </h3>
-                    <h3 id="etanol">0</h3>
-                </div>
-                <div class="wyniki-single">
-                    <h3>G za 1zł:</h3>
-                <h3 id="rentownosc">0</h3>
-                </div>
-                <!-- <a href="" id="finder" class="bb">Wyszukaj podobne</a> -->
-                <p id="finder" class="button">Wyszukaj podobne</p>
-                
-                
-            </div>
+
+        <!-- Input: Zawartość alkoholu (%) -->
+        <h3>Zawartość Alkoholu(%)</h3>
+        <div class="input-wrapper">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            step="1"
+            value="6"
+            id="slider-zawartosc"
+            class="slider"
+          />
+          <input
+            type="number"
+            min="1"
+            max="100"
+            value="6"
+            id="input-zawartosc"
+            class="number-input"
+          />
         </div>
+
+        <!-- Input: Cena (zł) -->
+        <h3 class="cena-wrapper">Cena(zł)</h3>
+        <div class="input-wrapper cena-wrapper">
+          <input
+            type="number"
+            min="1"
+            max="10000"
+            value="4.5"
+            id="input-cena"
+            class="number-input"
+          />
+        </div>
+      </div>
+
+      <!-- Sekcja wyników -->
+      <div class="half half-wyniki">
+        <div class="wyniki">
+          <h2>Wyniki:</h2>
+
+          <!-- Wynik: Zawartość etanolu (g) -->
+          <div class="wyniki-single">
+            <h3>Zawartość etanolu (g):</h3>
+            <h3 id="etanol">0</h3>
+          </div>
+
+          <!-- Wynik: Gramy za 1 zł -->
+          <div class="wyniki-single">
+            <h3>G za 1zł:</h3>
+            <h3 id="rentownosc">0</h3>
+          </div>
+
+          <!-- Przycisk do wyszukiwania podobnych alkoholi -->
+          <p id="finder" class="button">Wyszukaj podobne</p>
+        </div>
+      </div>
     </div>
 
+    <!-- Sekcja podobnych alkoholi -->
     <div class="podobne-wrapper wrapper">
-        <div class="item">
-            <div class="podobne-nazwa1" id="podobne-nazwa1"></div>
-            <div class=""><img src="" alt="" id="podobne-image1"></div>
-            <div class="podobne-rent1" id="podobne-rent1"></div>
-        </div>
-        <div class="item">
-            <div class="podobne-nazwa2" id="podobne-nazwa2"></div>
-            <div class=""><img src="" alt="" id="podobne-image2"></div>
-            <div class="podobne-rent2" id="podobne-rent2"></div>
-        </div>
-
+      <div class="item">
+        <div class="podobne-nazwa1" id="podobne-nazwa1"></div>
+        <div class=""><img src="" alt="" id="podobne-image1" /></div>
+        <div class="podobne-rent1" id="podobne-rent1"></div>
+      </div>
+      <div class="item">
+        <div class="podobne-nazwa2" id="podobne-nazwa2"></div>
+        <div class=""><img src="" alt="" id="podobne-image2" /></div>
+        <div class="podobne-rent2" id="podobne-rent2"></div>
+      </div>
     </div>
 
-
+    <!-- Stopka strony -->
     <footer>
-        <div class="footer-main wrapper">
-            <div class="half half1">
-                <h4>KONTAKT</h4>
-                <p><i class="fa-solid fa-phone"></i> Telefon: <a href="phone:123123123">123123123</a></p>
-                <p><i class="fa-solid fa-envelope"></i> Mail: <a href="mailto:example@example.com">example@example.com</a></p>
-                
-               
-            </div>
-            <div class="half half2">
-                <h4>BIURO</h4>
-                <p><i class="fa-solid fa-map-pin"></i> Lokalizacja: <a target="_blank" href="https://www.google.com/maps/place/Szybka+1F,+50-421+Wroc%C5%82aw/@51.1019925,17.05214,17z/data=!3m1!4b1!4m6!3m5!1s0x470fc2875d2c3fdb:0x8a6cf9594e46925f!8m2!3d51.1019892!4d17.0547203!16s%2Fg%2F11c2771bcw?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D">Szybka 1f <br> 50-421 Wrocław</a></p>
-                
-            </div>
+      <div class="footer-main wrapper">
+        <div class="half half1">
+          <h4>KONTAKT</h4>
+          <p>
+            <i class="fa-solid fa-phone"></i> Telefon:
+            <a href="phone:123123123">123123123</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i> Mail:
+            <a href="mailto:example@example.com">example@example.com</a>
+          </p>
         </div>
+        <div class="half half2">
+          <h4>BIURO</h4>
+          <p>
+            <i class="fa-solid fa-map-pin"></i> Lokalizacja:
+            <a
+              target="_blank"
+              href="https://www.google.com/maps/place/Szybka+1F,+50-421+Wroc%C5%82aw/@51.1019925,17.05214,17z/data=!3m1!4b1!4m6!3m5!1s0x470fc2875d2c3fdb:0x8a6cf9594e46925f!8m2!3d51.1019892!4d17.0547203!16s%2Fg%2F11c2771bcw?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D"
+              >Szybka 1f <br />
+              50-421 Wrocław</a
+            >
+          </p>
+        </div>
+      </div>
     </footer>
 
+    <!-- Link do skryptu JavaScript -->
     <script src="js/app.js"></script>
     <!-- <script src="js/database.js"></script> -->
-</body>
+  </body>
 </html>
